@@ -1,5 +1,5 @@
 {
-    "name": "lcfumes/docker",
+    "name": "lcfumes/docker-php56-mariadb-elasticsearch",
     "description": "Docker to Local Projects PHP5.6 MariaDb Elasticsearch",
     "license": "All rights by lcfumes@gmail.com",
     "keywords": [ "docker", "composer" ],
