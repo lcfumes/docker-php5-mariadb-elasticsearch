@@ -1,12 +1,25 @@
 {
     "name": "lcfumes/docker-php56-mariadb-elasticsearch",
     "description": "Docker to Local Projects PHP5.6 MariaDb Elasticsearch",
-    "license": "All rights by lcfumes@gmail.com",
-    "keywords": [ "docker", "composer" ],
-    "target-dir": "",
-    "extra": {
-        "branch-alias": {
-            "dev-master": "master"
-        }
+    "license": "All rights by Luiz Fumes",
+    "keywords": [ "docker", "composer", "centos", "mariadb", "elasticsearch", "virtualmachine" ],
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+       {
+          "name": "Luiz Fumes",
+          "email": "lcfumes@gmail.com",
+          "role": "Developer"
+       }
+    ],
+    "repositories": [
+         {
+             "url": "git@github.com:lcfumes/docker-php5-mariadb-elasticsearch.git",
+             "type": "git"
+         }
+    ],
+
+    "require-dev": {
+        "lcfumes/docker-php56-mariadb-elasticsearch": "dev-master"
     }
 }

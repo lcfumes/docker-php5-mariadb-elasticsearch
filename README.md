@@ -8,6 +8,7 @@ Nginx
 PHP5.6
 Php-Fpm
 MariaDb:10.0
+ElasticSearch: 2.2
 
 
 This project was made to use with composer.json. To run it alone, you need do change some configurations in the file docker-compose.yml. 
@@ -25,13 +26,14 @@ apt-get install curl php5-cli php5-curl
 ```
 {
     "repositories": [
-        {
-          "url": "git@github.com:lcfumes/docker-php5-mariadb-elasticsearch.git",
-          "type": "git"
-        }
+         {
+             "url": "git@github.com:lcfumes/docker-php5-mariadb-elasticsearch.git",
+             "type": "git"
+         }
     ],
+
     "require-dev": {
-        "lcfumes/docker-php5-machine": "dev-master"
+        "lcfumes/docker-php56-mariadb-elasticsearch": "dev-master"
     }
 }
 ```
@@ -86,7 +88,7 @@ https://docs.docker.com/compose/install/
 ### Up machines ###
 
 ```
-cd /yourproject/vendor/lcfumes/docker-php5-machine/
+cd /yourproject/vendor/lcfumes/docker-php56-mariadb-elasticsearch/
 docker-compose up -d
 ```
 
