@@ -1,0 +1,40 @@
+proxy:
+    image: jwilder/nginx-proxy
+    ports:
+        - "80:80"
+        - "443:443"
+    volumes:
+        - /var/run/docker.sock:/tmp/docker.sock
+        - ./containers/proxy/proxy.conf:/etc/nginx/conf.d/my_proxy.conf
+
+webproject:
+    image: lcfumes/ubuntu-nginx-php
+    ports:
+        - "80"
+    environment:
+       - VIRTUAL_HOST=webproject.dev,*.webproject.dev
+    volumes:
+       - ../../../:/srv/webproject
+    links:
+       - database:database.dev.io
+       - elasticsearch:elasticsearch.dev.io
+
+database:
+    image: mariadb:10.0
+    environment:
+        - MYSQL_ROOT_PASSWORD=root
+        - VIRTUAL_HOST=database.dev.io
+    volumes:
+        - ./tmp/mysql:/var/lib/mysql
+        - ./containers/database/my.cnf:/etc/mysql/conf.d/custom.cnf
+    ports:
+        - "3306:3306"
+
+elasticsearch:
+   image: lcfumes/elasticsearch
+   environment:
+      - VIRTUAL_HOST=elasticsearch.dev.io
+   ports:
+      - "9200:9200"
+      - "9500:9500"
+      - "80"
