@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Docker-php5-mariadb-elasticsearch by lcfumes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Docker-php5-mariadb-elasticsearch</h1>
+      <h2 class="project-tagline">Docker Machine with Centos7, PHP 5.6, MariaDB and ElasticSearch</h2>
+      <a href="https://github.com/lcfumes/docker-php5-mariadb-elasticsearch" class="btn">View on GitHub</a>
+      <a href="https://github.com/lcfumes/docker-php5-mariadb-elasticsearch/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/lcfumes/docker-php5-mariadb-elasticsearch/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h2>
+<a id="lcfumesdocker-php5-machine" class="anchor" href="#lcfumesdocker-php5-machine" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>lcfumes/docker-php5-machine</h2>
+
+<h3>
+<a id="containers" class="anchor" href="#containers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Containers</h3>
+
+<p>Proxy</p>
+
+<p>Centos:7
+Nginx
+PHP5.6
+Php-Fpm
+MariaDb:10.0
+ElasticSearch: 2.2</p>
+
+<p>This project was made to use with composer.json. To run it alone, you need do change some configurations in the file docker-compose.yml. </p>
+
+<p>If you wanna run it alone, you can write me. It will be a pleasure to help you.</p>
+
+<h3>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dependencies</h3>
+
+<pre><code>apt-get install curl php5-cli php5-curl
+</code></pre>
+
+<h3>
+<a id="using-in-composerjson" class="anchor" href="#using-in-composerjson" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using in composer.json</h3>
+
+<pre><code>{
+    "repositories": [
+         {
+             "url": "git@github.com:lcfumes/docker-php5-mariadb-elasticsearch.git",
+             "type": "git"
+         }
+    ],
+
+    "require-dev": {
+        "lcfumes/docker-php56-mariadb-elasticsearch": "dev-master"
+    }
+}
+</code></pre>
+
+<h3>
+<a id="runing-composer" class="anchor" href="#runing-composer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Runing Composer</h3>
+
+<p>Local Machine:</p>
+
+<pre><code>composer install
+</code></pre>
+
+<p>Live Machine</p>
+
+<pre><code>composer install --no-dev
+</code></pre>
+
+<h3>
+<a id="about-the-project" class="anchor" href="#about-the-project" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>About the project</h3>
+
+<p>You need to create a "tmp/nginx" folder, with write permission.</p>
+
+<pre><code>cd /project/
+mkdir tmp/
+mkdir tmp/nginx
+chmod -R 777 tmp
+</code></pre>
+
+<p>This project was made to run in the ZendFramework. If you use another framework, my sugestion is to create a simbolic link called "public". </p>
+
+<h3>
+<a id="install-docker" class="anchor" href="#install-docker" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install Docker</h3>
+
+<pre><code>wget -qO- https://get.docker.com/ | sh
+</code></pre>
+
+<h3>
+<a id="added-your-user-to-docker-group" class="anchor" href="#added-your-user-to-docker-group" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Added your user to Docker group</h3>
+
+<pre><code>sudo usermod -aG docker YOUR_USER
+</code></pre>
+
+<h3>
+<a id="install-docker-compose" class="anchor" href="#install-docker-compose" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install Docker-Compose</h3>
+
+<pre><code>https://docs.docker.com/compose/install/
+</code></pre>
+
+<h2>
+<a id="to-run" class="anchor" href="#to-run" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>To Run</h2>
+
+<h3>
+<a id="up-machines" class="anchor" href="#up-machines" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Up machines</h3>
+
+<pre><code>cd /yourproject/vendor/lcfumes/docker-php56-mariadb-elasticsearch/
+docker-compose up -d
+</code></pre>
+
+<h3>
+<a id="stop" class="anchor" href="#stop" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Stop</h3>
+
+<pre><code>docker-compose stop
+docker-compose rm
+</code></pre>
+
+<h3>
+<a id="database" class="anchor" href="#database" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Database</h3>
+
+<pre><code>mysql -uroot -proot -hdatabase.dev
+</code></pre>
+
+<h3>
+<a id="browser" class="anchor" href="#browser" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Browser</h3>
+
+<pre><code>http://webproject.dev
+</code></pre>
+
+<h3>
+<a id="docker-hub" class="anchor" href="#docker-hub" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Docker HUB</h3>
+
+<p>This project use the images from Docker Hub</p>
+
+<p>lcfumes/nginx-php56 - <a href="https://hub.docker.com/r/lcfumes/docker-centos7-php56-mariadb/">https://hub.docker.com/r/lcfumes/docker-centos7-php56-mariadb/</a></p>
+
+<p>jwilder/nginx-proxy - <a href="https://hub.docker.com/r/jwilder/nginx-proxy/">https://hub.docker.com/r/jwilder/nginx-proxy/</a></p>
+
+<p>Mariadb - <a href="https://hub.docker.com/_/mariadb/">https://hub.docker.com/_/mariadb/</a></p>
+
+<p>ElasticSearch - <a href="http://elastic.co">http://elastic.co</a></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/lcfumes/docker-php5-mariadb-elasticsearch">Docker-php5-mariadb-elasticsearch</a> is maintained by <a href="https://github.com/lcfumes">lcfumes</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
